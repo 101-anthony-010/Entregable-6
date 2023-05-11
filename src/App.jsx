@@ -9,6 +9,7 @@ import Header from './components/Layout/Header'
 import Footer from './components/layout/Footer'
 import NotFound from './pages/NotFound'
 import ProtectedAuth from './components/auth/protectedAuth'
+import Cart from './components/cart/Cart'
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       </Routes>
 
       <Footer/>
+      <Cart/>
     </section>
   )
 }

@@ -60,7 +60,7 @@ const Home = () => {
                 }
             </ul>
         </form>
-            <section>
+            <section className="max-w-[1000px] mx-auto flex gap-5 flex-wrap items-center justify-center my-4">
                 {
                     productsByName?.map((product) => <ProductCard key={product.id} product={product}/>)
                 }

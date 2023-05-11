@@ -1,12 +1,32 @@
 import { useEffect, useState } from 'react'
-import { axiosEcommerce } from '../../utils/configAxios'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { axiosEcommerce } from '../../utils/configAxios'
+
 import SimilarProducts from './SimilarProducts'
+import { addProductCart } from '../../store/slices/cart.slice'
 
 const ProductDetail = ({productsId}) => {
     const [productData, setProductData] = useState()
+    const [counter, setCounter] = useState(1)
+
+    const dispatch = useDispatch()
     
+    const handleClickPlus = () => {
+        const newCounter = counter + 1
+        setCounter(newCounter)
+    }
+    const handleClickLess = () => {
+        const newCounter = counter - 1
+        if (counter > 0){
+            setCounter(newCounter)
+        }
+    }
+    const handleClickAddToCart = () => {
+        dispatch(addProductCart({quantity: counter, productId: productData.id}))
+    }
+
     useEffect(() => {
       axiosEcommerce.get(`products/${productsId}`)
         .then((res) => setProductData(res.data))
@@ -18,7 +38,7 @@ const ProductDetail = ({productsId}) => {
      <section className='flex gap-2 items-center'>
         <Link to="/">Home</Link>
         <div className='h-[7px] aspect-square bg-red-500 rounded-full'></div>
-        <span className='font-bold'>{productData.title}</span>
+        <span className='font-bold'>{productData?.title}</span>
       </section>
     <section className='grid gap-6 sm:grid-cols-2 items-center max-w-[1000px] mx-auto'>
         <section>
@@ -37,13 +57,13 @@ const ProductDetail = ({productsId}) => {
                 <article>
                     <h4 className='text-gray-400 font-bold'>Quantity</h4>
                     <div className='flex items-center'>
-                        <button className='border-[1px] p-2 px-4 hover:bg-red-500 hover:text-white transition-colors'>-</button>
-                        <span className='border-[1px] border-x-0 p-2 px-4'>1</span>
-                        <button className='border-[1px] p-2 px-4 hover:bg-red-500 hover:text-white transition-colors'>+</button>
+                        <button onClick={handleClickLess} className='border-[1px] p-2 px-4 hover:bg-red-500 hover:text-white transition-colors'>-</button>
+                        <span className='border-[1px] border-x-0 p-2 px-4'>{counter}</span>
+                        <button onClick={handleClickPlus} className='border-[1px] p-2 px-4 hover:bg-red-500 hover:text-white transition-colors'>+</button>
                     </div>
                 </article>
             </section>
-            <button className='w-full bg-red-500 py-2 text-white hover:bg-red-600 transition-colors rounded-sm mt-6'>Add to cart</button>
+            <button onClick={handleClickAddToCart} className='w-full bg-red-500 py-2 text-white hover:bg-red-600 transition-colors rounded-sm mt-6'>Add to cart</button>
             <p className='text-sm my-6 text-gray-700'>{productData?.description}</p>
         </section>
     </section>

@@ -3,7 +3,6 @@ import { Navigate, Outlet } from "react-router-dom"
 
 const ProtectedAuth = () => {
     const {token} = useSelector(store => store.userInfoSlice)
-    console.log(token)
     if (token) {
         return <Outlet/>
     } else {
