@@ -35,11 +35,11 @@ const Login = () => {
           <h3 className="text-center">Test data</h3>
           <div>
             <i className="bx bx-envelope"></i>
-            <span>john@gmail.com</span>
+            <span className="ml-3">john@gmail.com</span>
           </div>
           <div>
             <i className="bx bx-lock-alt"></i>
-            <span>john1234</span>
+            <span className="ml-3">john1234</span>
           </div>
         </section>
         <div className="grid gap-2">
@@ -50,8 +50,10 @@ const Login = () => {
           <label htmlFor="password">Password</label>
           <input className="border border-gray-300 p-1 outline-none rounded-md" id="password" type="password" {...register("password", {required:true})}/>
         </div>
-        <button className="px-7 text-white py-2 bg-red-500 rounded-md">Login</button>
-        <span>Don't have an account?<Link to="#"> Sign up</Link> </span>
+        <div className="grid gap-3 mt-5 ">
+          <button className="px-7 text-white py-2 bg-red-500 rounded-md">Login</button>
+          <span>Don't have an account?<Link className="text-blue-500" to="#"> Sign up</Link> </span>
+        </div>
       </form>
       )
     }
