@@ -52,7 +52,7 @@ const Login = () => {
         </div>
         <div className="grid gap-3 mt-5 ">
           <button className="px-7 text-white py-2 bg-red-500 rounded-md">Login</button>
-          <span>Don't have an account?<Link className="text-blue-500" to="#"> Sign up</Link> </span>
+          <span>Don't have an account?<Link className="text-blue-500" to="/signup"> Sign up</Link> </span>
         </div>
       </form>
       )

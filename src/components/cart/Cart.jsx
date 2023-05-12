@@ -8,7 +8,8 @@ import CartProduct from './CartProduct'
 const Cart = () => {
     const {isShowCart, products} = useSelector(store => store.cartSlice)
     const {token} = useSelector(store => store.userInfoSlice)
-
+    products.map(product => console.log(product.id))
+    products.map(product => console.log(product.quantity))
 
     const dispatch = useDispatch() 
 

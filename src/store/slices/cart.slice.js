@@ -17,14 +17,15 @@ const cartSlice = createSlice({
             const newProducts = action.payload
             state.products = newProducts
         },
-        addProduct: () => {
-
+        plusProduct: (state, action) => {
+            console.log(action.payload)
         }
     }
 })
 export const {
     changeIsShowCart,
-    setProducts
+    setProducts,
+    plusProduct
 } = cartSlice.actions
 
 export const getCartProduct = () => (dispatch) => {

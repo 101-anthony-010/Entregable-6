@@ -12,10 +12,11 @@ const ProductCard = ({product}) => {
   return (
     <Link to={`/products/${product.id}`}>
       <div className='border-[2px] border-gray-200 rounded-lg p-2'>
-        <div className='h-[200px]'>
-          <img src={product.images[0].url} className={`w-full h-full object-contain`} alt="" />
+        <div className='h-[200px] relative overflow-hidden group'>
+          <img src={product.images[0].url} className={`transition-opacity duration-300 group-hover:opacity-0 w-full h-full object-contain`} alt="" />
+          <img src={product.images[1].url} className={`transition-opacity duration-300 group-hover:opacity-100 w-full h-full object-contain absolute top-0 left-0 opacity-0`} alt="" />
         </div>
-        <section className='p-4 relative'>
+        <section className='p-4 relative bg-white'>
           <h4 className='text-gray-400 font-bold'>{product.brand}</h4>
           <h3 className='font-bold text-sm ml-2'>{product.title}</h3>
           <h4 className='text-gray-400 font-bold mt-4'>Price</h4>

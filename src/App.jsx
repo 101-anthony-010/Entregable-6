@@ -10,6 +10,7 @@ import Footer from './components/layout/Footer'
 import NotFound from './pages/NotFound'
 import ProtectedAuth from './components/auth/protectedAuth'
 import Cart from './components/cart/Cart'
+import Signup from './pages/Signup'
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
         <Route element={<ProtectedAuth/>}>
           <Route path='/purchases' element={<Purchases/>}/>
         </Route>
-        
+
+        <Route path='/signup*' element={<Signup/>}/>
         <Route path='/products/:id' element={<Product/>}/>
         <Route path='/*' element={<NotFound/>}/>
       </Routes>
