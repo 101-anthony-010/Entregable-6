@@ -8,7 +8,7 @@ import Product from './pages/Product'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import NotFound from './pages/NotFound'
-import ProtectedAuth from './components/auth/protectedAuth'
+import ProtectedAuth from './components/auth/ProtectedAuth'
 import Cart from './components/cart/Cart'
 import Signup from './pages/Signup'
 
