@@ -3,7 +3,8 @@ import { axiosEcommerce } from "../../utils/configAxios";
 
 const initialState = {
     token: "",
-    user: null
+    user: null,
+    isShowCategory: false
 }
 
 const userInfoSlice = createSlice({
@@ -19,10 +20,17 @@ const userInfoSlice = createSlice({
             const newState = {...state, ...initialState}
             localStorage.setItem("userInfo", JSON.stringify(newState))
             return newState
+        },
+        changeIsShowCategory: (state) => {
+            state.isShowCategory = !state.isShowCategory
         }
     }
 })
-export const { setUserInfo, logOut } = userInfoSlice.actions
+export const { 
+    setUserInfo, 
+    logOut,
+    changeIsShowCategory  
+} = userInfoSlice.actions
 
 export const loginUser = (data) => (dispacth) => {
     axiosEcommerce.post("users/login", data)

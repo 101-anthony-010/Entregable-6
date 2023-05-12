@@ -21,9 +21,12 @@ const Login = () => {
     <main className="bg-gray-100 grid place-content-center">
     {
       token ? (
-        <section>
-          <h1>User logged</h1>
-          <button onClick={handleClickLogOut}>salir</button>
+        <section className="text-center">
+          <div className="w-[130px] rounded-full border-[5px] mb-5">
+            <img className="w-full h-full object-contain aspect-square rounded-full" src="/images/user.png" alt="" />
+          </div>
+          <h1 className="my-2">User logged</h1>
+          <button className="px-7 text-white py-2 bg-red-500 rounded-md" onClick={handleClickLogOut}>salir</button>
         </section>
       ) : (
         <form onSubmit={handleSubmit(submit)} className="bg-white p-4 rounded-md max-w-[320px]">
@@ -47,7 +50,7 @@ const Login = () => {
           <label htmlFor="password">Password</label>
           <input className="border border-gray-300 p-1 outline-none rounded-md" id="password" type="password" {...register("password", {required:true})}/>
         </div>
-        <button>Login</button>
+        <button className="px-7 text-white py-2 bg-red-500 rounded-md">Login</button>
         <span>Don't have an account?<Link to="#"> Sign up</Link> </span>
       </form>
       )

@@ -26,8 +26,7 @@ const Header = () => {
                 <i className="bx bx-box"></i>
             </Link>
             <button onClick={handleClickChangeShowCart} className='p-3 hover:bg-red-500 hover:text-white transition-colors delay-100'>
-                {products.length}
-                <i className="bx bx-cart"></i>
+                <i className="bx bx-cart relative"><span className='absolute -top-1/2 -right-3 text-xs w-[20px] h-[20px] p-[1px] bg-red-500 rounded-full text-white'>{products.length}</span></i>
             </button>
         </nav>
     </section>
