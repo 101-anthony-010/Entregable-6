@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <section className='flex justify-between items-center shadow-md px-4'>
         <Link to="/">
-            <h1 className='text-center text-red-500 font-bold text-2xl'>E-Commerce</h1>
+            <h1 className='text-center text-red-500 font-bold md:text-2xl text-xl'>E-Commerce</h1>
         </Link>
         <nav className='flex justify-center gap-3 text-xl'>
             <Link className='p-3 hover:bg-red-500 hover:text-white transition-colors delay-100' to="/login">
